@@ -14,11 +14,15 @@ function Person() {
     };
 
     function firstNameInput(event) {
-        setFirstName(event.target.value)
+        const newFirstName = event.target.value;
+        setFirstName(newFirstName);
+        setPerson({ ...person, name: `${newFirstName} ${lastName}` });
     }
 
     function lastNameInput(event) {
-        setLastName(event.target.value)
+        const newLastName = event.target.value;
+        setLastName(newLastName);
+        setPerson({ ...person, name: `${firstName} ${newLastName}` });
     }
 
     // this console.log runs every time the component renders
@@ -27,7 +31,8 @@ function Person() {
 
     return (
         <>
-        <h1>{fullName}</h1>
+        {/* <h1>{fullName}</h1> */}
+        <h1>{person.name}</h1>
         <h2>{person.age}</h2>
         <button onClick={handleIncreaseAge}>Increase age</button>
         <br/>
