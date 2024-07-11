@@ -4,7 +4,7 @@ function Person() {
     const [person, setPerson] = useState({ name: "John", age: 100 });
     const [firstName, setFirstName] = useState("John");
     const [lastName, setLastName] = useState("");
-    const fullName = firstName + " " + lastName;
+    
 
     const handleIncreaseAge = () => {
         console.log("in handleIncreaseAge (before setPerson call): ", person);
@@ -30,8 +30,7 @@ function Person() {
     console.log("during render: ", person);
 
     return (
-        <>
-        {/* <h1>{fullName}</h1> */}
+        <>        
         <h1>{person.name}</h1>
         <h2>{person.age}</h2>
         <button onClick={handleIncreaseAge}>Increase age</button>
